@@ -1,0 +1,20 @@
+.about-page {
+    height: 700px;
+    padding-top: 200px;
+    .contentWrapper {
+        text-align: center;
+        color: var(--black-light);
+        display: flex;
+        flex-direction: column;
+    }
+    h2 {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+}
