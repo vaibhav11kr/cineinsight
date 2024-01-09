@@ -21,13 +21,13 @@ const Footer = () => {
     <footer className="footer">
       <ContentWrapper>
         <ul className="menuItems">
-          <li className="menuItem">Terms Of Use</li>
-          <li className="menuItem">Privacy-Policy</li>
+          <li className="menuItem" onClick={handleAboutClick}>Terms Of Use</li>
+          <li className="menuItem" onClick={handleAboutClick}>Privacy-Policy</li>
           <li className="menuItem" onClick={handleAboutClick}>
             About
           </li>
-          <li className="menuItem">Blog</li>
-          <li className="menuItem">FAQ</li>
+          <li className="menuItem" onClick={handleAboutClick}>Blog</li>
+          <li className="menuItem" onClick={handleAboutClick}>FAQ</li>
         </ul>
         <div className="infoText">
           "Welcome to CineInsight, your cinematic guide. Thanks for choosing us!
