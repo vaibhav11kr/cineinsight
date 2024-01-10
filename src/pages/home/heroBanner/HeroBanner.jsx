@@ -16,11 +16,18 @@ const HeroBanner = () => {
     const { data, loading } = useFetch("/movie/upcoming");
 
     useEffect(() => {
-        const bg =
-            url.backdrop +
+        const randomBackdropPath =
             data?.results?.[Math.floor(Math.random() * 20)]?.backdrop_path;
-        setBackground(bg);
-    }, [data]);
+
+        // Check if backdrop path is valid before constructing the URL
+        if (url.backdrop && randomBackdropPath) {
+            const bg = url.backdrop + randomBackdropPath;
+            setBackground(bg);
+        } else {
+            // Fallback to the default image if URL is not valid
+            setBackground("");
+        }
+    }, [data, url.backdrop]);
 
     const searchHandler = () => {
         if (query.length > 0) {
@@ -34,11 +41,13 @@ const HeroBanner = () => {
         }
     };
 
+    const fallbackImage = "https://image.tmdb.org/t/p/original/4HodYYKEIsGOdinkGi2Ucz6X9i0.jpg";
+
     return (
         <div className="heroBanner">
             {!loading && (
                 <div className="backdrop-img">
-                    <Img src={background} />
+                    <Img src={background || fallbackImage} />
                 </div>
             )}
 
